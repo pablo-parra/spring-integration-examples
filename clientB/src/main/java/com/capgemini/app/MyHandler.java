@@ -32,7 +32,7 @@ public class MyHandler implements IntegrationHandler {
     InputStream in = new ByteArrayInputStream(message.toString().getBytes());
     XMLDecoder decoder = new XMLDecoder(in);
     Product p = (Product) decoder.readObject();
-    p.setName("Product B");
+    p.setName("Product A with price updated");
     p.setPrice(50);
     decoder.close();
 

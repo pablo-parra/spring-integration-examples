@@ -50,28 +50,23 @@ public class IntegrationConfig {
   public IntegrationFlow inAndOutFlow(IntegrationHandler h) {
 
     return IntegrationFlows.from(Jms.inboundGateway(this.connectionFactory).destination("echo.queue"))
-        .wireTap(flow -> flow.handle(System.out::println))
-        .handle(/*
-                 * Message, m -> { try { return h.handleMessage(m.getPayload()); } catch (Exception e) {
-                 * e.printStackTrace(); return null; } }
-                 */
-            new GenericHandler<String>() {
+        .wireTap(flow -> flow.handle(System.out::println)).handle(new GenericHandler<String>() {
 
-              @Override
-              public Object handle(String payload, Map<String, Object> headers) {
+          @Override
+          public Object handle(String payload, Map<String, Object> headers) {
 
-                try {
+            try {
 
-                  return h.handleMessage(payload);
+              return h.handleMessage(payload);
 
-                } catch (Exception e) {
-                  // TODO: handle exception
-                  return null;
-                }
-
-              }
-
+            } catch (Exception e) {
+              e.printStackTrace();
+              return null;
             }
+
+          }
+
+        }
 
         ).get();
   }

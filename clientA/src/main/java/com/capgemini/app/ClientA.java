@@ -27,17 +27,18 @@ public class ClientA {
 
     printProduct(p1);
 
-    Product p2 = (Product) this.integration.getReply(ctx, p1);
+    Product p2 = (Product) this.integration.sendAndGetReply(ctx, p1);
 
     printProduct(p2);
   }
 
   public void printProduct(Product p) {
 
-    System.out.println("### PRODUCT ###");
+    System.out.println("");
+    System.out.println("- - - PRODUCT - - -");
     System.out.println("NAME: " + p.getName());
     System.out.println("ID: " + p.getProductId());
     System.out.println("PRICE: " + String.valueOf(p.getPrice()));
-    System.out.println("###############");
+    System.out.println("-------------------");
   }
 }

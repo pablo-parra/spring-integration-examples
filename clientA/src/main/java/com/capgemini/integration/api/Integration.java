@@ -10,7 +10,7 @@ public interface Integration {
 
   // public void send(ConfigurableApplicationContext ctx, String message);
 
-  public Object getReply(ConfigurableApplicationContext ctx, Object object);
+  public Object sendAndGetReply(ConfigurableApplicationContext ctx, Object object);
 
   // public void sendAsJson(ConfigurableApplicationContext ctx, Object object);
 }

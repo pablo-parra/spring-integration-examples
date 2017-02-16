@@ -30,5 +30,10 @@ public class Emitter {
     this.integration.sendAsXml(ctx, p);
 
     this.integration.sendAsJson(ctx, p);
+
+    // CREATING NEW FLOWS
+    // this.integration.createFlow(ctx, "myFlow", "myNewQueue");
+
   }
+
 }

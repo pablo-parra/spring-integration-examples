@@ -18,6 +18,6 @@ public class Receiver {
 
   public void start() {
 
-    this.integration.subscribe(new MyHandler());
+    // this.integration.subscribe(new MyHandler());
   }
 }

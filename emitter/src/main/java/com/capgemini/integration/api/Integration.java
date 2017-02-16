@@ -13,4 +13,6 @@ public interface Integration {
   public void sendAsXml(ConfigurableApplicationContext ctx, Object object);
 
   public void sendAsJson(ConfigurableApplicationContext ctx, Object object);
+
+  public void createFlow(ConfigurableApplicationContext ctx, String name, String queueName);
 }

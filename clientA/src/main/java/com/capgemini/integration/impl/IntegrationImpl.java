@@ -32,7 +32,7 @@ public class IntegrationImpl implements Integration {
   // }
 
   @Override
-  public Object getReply(ConfigurableApplicationContext ctx, Object p1) {
+  public Object sendAndGetReply(ConfigurableApplicationContext ctx, Object p1) {
 
     String xml = convertObjectToXml(p1);
     EchoGateway echoGateway = ctx.getBean(EchoGateway.class);
